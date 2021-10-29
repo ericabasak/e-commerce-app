@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
     def index
-        # render html: "hello"
+        @categories = Category.order(:title)
     end
 end
