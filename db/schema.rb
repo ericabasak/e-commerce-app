@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_134337) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -32,8 +34,7 @@ ActiveRecord::Schema.define(version: 2021_10_28_134337) do
     t.decimal "sub_total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "order_id", null: false
-    t.index ["order_id"], name: "index_orders_on_order_id"
+    t.string "token"
   end
 
   create_table "product_categories", force: :cascade do |t|
